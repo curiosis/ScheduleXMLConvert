@@ -1,0 +1,114 @@
+/* autor Remigiusz Drobinski */
+
+* {
+    margin: auto;
+    padding: 0px;
+}
+
+
+main{
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 5%;
+    margin: 5px;
+    background-color: #f2b8c7;
+}
+
+#labs{
+    margin-bottom: 10px;
+    align-items: center;
+    border: 1px solid black;
+    padding-top: 5px;
+    padding: 5px;
+    background-color: white;
+    width: 80vw;
+}
+
+#legend{
+    width: 80vw;
+    border: 1px solid black;
+}
+
+.labLeg{
+    height: 3vh;
+    background-color: #edd9a1;
+}
+
+.conLeg{
+    height: 3vh;
+    background-color: #a1edc8;
+}
+
+.lecLeg{
+    height: 3vh;
+    background-color: #ecbefa;
+}
+
+
+footer{
+    text-align: center;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+
+#color{
+    height: 2vh;
+    width: 8vw;
+    background-color: blue;
+}
+
+h1{
+    font-size: 35px;
+}
+
+button{
+    width: 25vw;
+    margin: 2%;
+}
+
+.cons{
+    background-color: #a1edc8;
+}
+
+.lab{
+    background-color: #edd9a1;
+    margin-left: 5px;
+}
+
+.lect{
+    background-color: #ecbefa;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+#instr{
+    border: 1px solid black;
+    height: 30vh;
+    width: 80vw;
+    
+    background-color: white;
+}
+
+#tekst{
+    padding-top: 4%;
+}
+
+@media (orientation: landscape) {
+    .labLeg{
+        height: 6vh;
+    }
+
+    .conLeg{
+        height: 6vh;
+    }
+
+    .lecLeg{
+        height: 6vh;
+    }
+    
+    #tekst{
+    padding-top: 1%;
+}
+}

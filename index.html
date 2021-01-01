@@ -6,18 +6,38 @@
         <meta name="description" content="Terminarz from xml file">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="utf-8"/>
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="styl.css">
         <script type="text/javascript" src="script.js" charset="utf-8" defer></script>
     </head>
     <body>
         <main>
-            <div id='content'>
-                <table id='labs'>
-                    ss
+            <pre id='output'></pre>
+            <h1 id="plan">Plan zajęć</h1>
+            <h2 id="day"></h2>
+            <button onclick="changeDay('poniedzialek','poniedziałek')">Poniedziałek</button>
+            <button onclick="changeDay('wtorek','wtorek')">Wtorek</button>
+            <button onclick="changeDay('sroda','środa')">Środa</button>
+            <button onclick="changeDay('czwartek','czwartek')">Czwartek</button>
+            <button onclick="changeDay('piatek','piątek')">Piatek</button>
+            
+            <div id="instr"><div id='tekst'>1. Witaj w aplikacji sprawdzającej plan zajęć.<br>2. Dane pobiarane są z pliku plik.xml<br>3. Projekt działa na serwerze lokalnym<br>4.Plan zajęć obejmuje konsultacje, wykłady oraz laboratoria.<br>5.Poniżej znajduje się legenda.<br>6.Aby zobaczyć plan na konkretny dzień należy wcisnąć jeden z dostępnych przycisków.</div> </div>
+            
+            <div id="content">
+                <table id='labs' cellpadding='10px'>
+                    <thead id='remove'>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
                 </table>
             </div>
+            <div id='legend'>
+                <div class='lecLeg' class="leg">Wykłady</div>
+                <div class='labLeg'>Laboratoria</div>
+                <div class='conLeg' class="leg">Konsultacje</div>
+            </div>
+            <footer> Remigiusz 'CurioSis' Drobinski 2020 </footer>
         </main>
-        <footer> Remigiusz 'CurioSis' Drobinski 2020 </footer>
+        
     </body>
 </html>
