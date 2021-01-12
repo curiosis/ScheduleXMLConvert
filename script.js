@@ -6,19 +6,23 @@ let day = document.getElementById('day');
 let xmlContent = '';
 let labsTable = document.getElementById('labs');
 let instrukcja = document.getElementById('instr');
+
 let labsCount = 0;
 let consultationsCount = 0;
+let exercisesCount = 0;
+let lecturesCount = 0;
 
 let latinDayVer = 'piatek';
 let plDayVer = 'piątek';
 
-let lecturesCount = 0;
+
 
 function fet(){
     labsCount = 0;
     lecturesCount = 0;
     consultationsCount = 0;
-    fetch('plik.xml').then((response)=>{
+    exercisesCount = 0;
+    fetch('http://195.149.98.178:6969/plan.xml').then((response)=>{
     response.text().then((xml)=>{
         xmlContent = xml;
         let parser = new DOMParser();
@@ -27,6 +31,7 @@ function fet(){
         let labs = xmlDOM.querySelectorAll('lab');
         let lectures = xmlDOM.querySelectorAll('lecture');
         let consultations = xmlDOM.querySelectorAll('consultation');
+        let exercises = xmlDOM.querySelectorAll('exercise');
         
         var table = document.getElementById('labs');
         var rowCount = table.rows.length;
@@ -158,6 +163,68 @@ function fet(){
             
         });
         
+        exercises.forEach(exeXmlNode => {
+            if(exeXmlNode.children[4].innerHTML == latinDayVer || exeXmlNode.children[4].innerHTML == plDayVer){
+                labsCount += 1;
+                
+                let row = document.createElement('tr');
+                row.setAttribute('class','line');
+                labsTable.children[0].appendChild(row);
+                let td = document.createElement('td');
+                td.innerText = '\n';
+                row.appendChild(td);
+                
+                row = document.createElement('tr');
+                row.setAttribute('class','exe');
+                labsTable.children[0].appendChild(row);
+
+                //Pełna nazwa
+                td = document.createElement('td');
+                td.innerText = exeXmlNode.children[0].innerHTML;
+                row.appendChild(td);
+
+                //Nazwa skrócona
+                row = document.createElement('tr');
+                row.setAttribute('class','exe');
+                labsTable.children[0].appendChild(row);
+                td = document.createElement('td');
+                td.innerText = exeXmlNode.children[1].innerHTML;
+                row.appendChild(td);
+
+                //Room
+                row = document.createElement('tr');
+                row.setAttribute('class','exe');
+                labsTable.children[0].appendChild(row);
+                td = document.createElement('td');
+                td.innerText = exeXmlNode.children[2].innerHTML;
+                row.appendChild(td);
+
+                //Group
+                row = document.createElement('tr');
+                row.setAttribute('class','exe');
+                labsTable.children[0].appendChild(row);
+                td = document.createElement('td');
+                td.innerText = exeXmlNode.children[3].innerHTML;
+                row.appendChild(td);
+
+                //Time
+                row = document.createElement('tr');
+                row.setAttribute('class','exe');
+                labsTable.children[0].appendChild(row);
+                td = document.createElement('td');
+                td.innerText = exeXmlNode.children[5].innerHTML + " - " + exeXmlNode.children[6].innerHTML;
+                row.appendChild(td); 
+
+                row = document.createElement('tr');
+                row.setAttribute('class','line');
+                labsTable.children[0].appendChild(row);
+                td = document.createElement('td');
+                td.innerText = '\n';
+                row.appendChild(td);
+            }
+            
+        });
+        
         
         consultations.forEach(consultationXmlNode => {
             if(consultationXmlNode.children[1].innerHTML == latinDayVer || consultationXmlNode.children[1].innerHTML == plDayVer){
@@ -198,7 +265,7 @@ function fet(){
         };
         
     })
-        if((labsCount+consultationsCount+lecturesCount) == 0){
+        if((labsCount+consultationsCount+lecturesCount + exercisesCount) == 0){
             let row = document.createElement('tr');
             row.innerText = "Brak";
             labsTable.children[0].appendChild(row);
@@ -206,8 +273,7 @@ function fet(){
             row = document.createElement('tr');
             row.innerText = "Zajęć w tym dniu!";
             labsTable.children[0].appendChild(row);
-            
-            console.log("Brak!");
+        
         }
     })
 })}

@@ -44,6 +44,10 @@ main{
     background-color: #ecbefa;
 }
 
+.exeLeg{
+    height: 3vh;
+    background-color: #9fe0ed;
+}
 
 footer{
     text-align: center;
@@ -63,7 +67,9 @@ h1{
 
 button{
     width: 25vw;
+    height: 10vh;
     margin: 2%;
+    background-color: floralwhite;
 }
 
 .cons{
@@ -77,6 +83,10 @@ button{
 
 .lect{
     background-color: #ecbefa;
+}
+
+.exe{
+    background-color: #9fe0ed;
 }
 
 table {
